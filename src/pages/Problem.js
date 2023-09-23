@@ -22,6 +22,7 @@ export default function Problem() {
 			<code>{problem.code}</code>
 			<p>{problem.extraInfo}</p>
 			<p>Rating: {problem.rating}</p>
+			{/* hello */}
 		</div>
 	)
 }
