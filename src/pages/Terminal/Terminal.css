@@ -1,0 +1,25 @@
+.terminalInput {
+	background-color: grey;
+	box-sizing: content-box;
+	display: flex;
+	flex-direction: column-reverse;
+	padding: 5px;
+}
+
+.terminalOutput {
+	background-color: rgb(31, 31, 31);
+	color: white;
+	height: 50vh;
+	display: flex;
+	flex-direction: column-reverse;
+	white-space: pre-line;
+}
+
+input {
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	color: white;
+}
