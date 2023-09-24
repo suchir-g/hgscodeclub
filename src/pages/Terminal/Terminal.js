@@ -17,6 +17,7 @@ export default function Terminal({ isAuth }) {
       <div className="terminalOutput">{output}</div>
       <div className="terminalInput">
         <input
+          className="terminalInputSingle"
           ref={inputRef}
           type="text"
           value={input}
@@ -68,6 +69,9 @@ export default function Terminal({ isAuth }) {
                     newOutput +=
                       "You aren't logged in yet. Did you mean 'login'?";
                   }
+                  break;
+                case "clear":
+                  newOutput = "$ " + input;
                   break;
                 default:
                   newOutput +=

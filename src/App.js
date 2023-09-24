@@ -8,10 +8,10 @@ import AboutUs from "./pages/AboutUs";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Problem from "./pages/Problem";
+import Register from "./pages/Register";
 
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -31,6 +31,7 @@ function App() {
         <Route path="/problems/:problemId" element={<Problem />} />
         <Route path="/newProblem" element={<NewProblem isAuth={isAuth} />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/register" element={<Register isAuth={isAuth} setIsAuth={setIsAuth}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route
           path="/profile"

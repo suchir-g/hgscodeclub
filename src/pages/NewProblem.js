@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDoc, doc } from "firebase/firestore";
 import { db, auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -9,8 +9,11 @@ export default function NewProblem({ isAuth }) {
   const [code, setCode] = useState("");
   const [extraInfo, setExtraInfo] = useState("");
   const [rating, setRating] = useState(0);
-  const problemsCollectionRef = collection(db, "problems");
 
+  const [userDoc, setUserDoc] = useState({});
+  const [userID, setUserID] = useState("");
+
+  const problemsCollectionRef = collection(db, "problems");
   let navigate = useNavigate();
 
   const createProblem = async () => {
@@ -23,15 +26,29 @@ export default function NewProblem({ isAuth }) {
       code,
       extraInfo,
       rating,
-      author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+      author: { name: userDoc.displayName, userID: userDoc.userID },
     });
+    // author : {name: auth.currentUser.displayName || auth.currentUser.email, userID: auth.currentUser.uid}
     navigate("/");
   };
 
   useEffect(() => {
-    if (!isAuth) {
-      navigate("/login");
-    }
+    const fetch = async () => {
+      if (!isAuth) {
+        navigate("/login");
+      } else {
+        await setUserID(auth.currentUser.uid);
+        const collectData = async () => {
+          const usersRef = doc(db, "users", userID);
+          const user = await getDoc(usersRef);
+          setUserDoc(user);
+        };
+        collectData();
+        console.log(userDoc)
+      }
+    };
+    fetch();
+    //this takes too long to load so "auth" hasn't fully loaded in yet. fix it please tomorow.
   }, []);
 
   return (

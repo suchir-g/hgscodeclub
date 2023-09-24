@@ -11,6 +11,7 @@ export default function Problem() {
 			const problemRef = doc(db, "problems", params.problemId);
 			const problem = await getDoc(problemRef)
 			setProblem({...problem.data(), id:problem.id})
+			console.log(problem)
 		}
 		collectData()
 	},[])

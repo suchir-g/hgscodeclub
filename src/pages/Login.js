@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./css/Login.css";
+
 
 export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
@@ -69,7 +71,7 @@ export default function Login({ setIsAuth }) {
         onChange={(e) => setSignInPassword(e.target.value)}
       />
       <button onClick={registerWithEmailAndPassword}>Register</button>
-      <button onClick={logInWithEmailAndPassword}>Register</button>
+      <button onClick={logInWithEmailAndPassword}>Login</button>
       <p>{errorMessage}</p>
     </div>
   );
