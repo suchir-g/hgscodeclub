@@ -1,25 +1,42 @@
 .terminalInput {
-	background-color: grey;
-	box-sizing: content-box;
-	display: flex;
-	flex-direction: column-reverse;
-	padding: 5px;
+  background-color: rgba(128, 128, 128, 0.52);
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 10px;
+  height: fit-content;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 2px rgba(172, 255, 47, 0.274) solid;
+  border-bottom: 2px #538d22 solid;
+  border-left: 2px #538d22 solid;
+  border-right: 2px #538d22 solid;
 }
 
 .terminalOutput {
-	background-color: rgb(31, 31, 31);
-	color: white;
-	height: 50vh;
-	display: flex;
-	flex-direction: column-reverse;
-	white-space: pre-line;
+  background-color: rgba(31, 31, 31, 0.501);
+  color: white;
+  height: 35vh;
+  display: flex;
+  flex-direction: column-reverse;
+  white-space: pre-line;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;  border-top: 2px rgba(172, 255, 47, 0.274) solid;
+	border-top: 2px #538d22 solid;
+  border-left: 2px #538d22 solid;
+  border-right: 2px #538d22 solid;
 }
 
 .terminalInputSingle {
-	border: none;
-	outline: none;
-	margin: 0;
-	padding: 0;
-	background-color: transparent;
-	color: white;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+}
+
+.terminalHolder {
+  width: 80%;
+	padding: 5px;
 }

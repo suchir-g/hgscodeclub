@@ -2,14 +2,12 @@ import React from "react";
 import { auth, provider } from "../config/firebase";
 import {
   signInWithPopup,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./css/Login.css";
-
-
+import { Link } from "react-router-dom";
 export default function Login({ setIsAuth }) {
   const navigate = useNavigate();
 
@@ -29,17 +27,6 @@ export default function Login({ setIsAuth }) {
       });
   };
 
-  const registerWithEmailAndPassword = async () => {
-    await createUserWithEmailAndPassword(auth, signInEmail, signInPassword)
-      .then(() => {
-        localStorage.setItem("isAuth", true);
-        setIsAuth(true);
-        navigate("/problems");
-      })
-      .catch((err) => {
-        setErrorMessage(err.message);
-      });
-  };
   const logInWithEmailAndPassword = async () => {
     signInWithEmailAndPassword(auth, signInEmail, signInPassword)
       .then(() => {
@@ -70,9 +57,11 @@ export default function Login({ setIsAuth }) {
         placeholder="Password"
         onChange={(e) => setSignInPassword(e.target.value)}
       />
-      <button onClick={registerWithEmailAndPassword}>Register</button>
       <button onClick={logInWithEmailAndPassword}>Login</button>
       <p>{errorMessage}</p>
+      <Link to="/register">
+        <button>Register</button>
+      </Link>
     </div>
   );
 }

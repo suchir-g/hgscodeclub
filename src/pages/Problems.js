@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { db, auth } from "../config/firebase";
 import { Link } from "react-router-dom";
+import "./css/Problems.css";
 
-export default function Problems({isAuth}) {
+export default function Problems({ isAuth }) {
   const [problemList, setProblemList] = useState([]);
   const problemCollectionRef = collection(db, "problems");
 
@@ -22,32 +23,35 @@ export default function Problems({isAuth}) {
 
   return (
     <div className="homePage">
-      {problemList.map((post) => {
-        return (
-          <div className="post">
-            <h1>
-              <Link to={`/problems/${post.id}`}>{post.title}</Link>
-            </h1>
-            <h3>{post.author.name}</h3>
-            <p>{post.description}</p>
-            <p>{post.code}</p>
-            <p>{post.extraInfo}</p>
-            <p>{post.rating}</p>
-            {isAuth && post.author.id === auth.currentUser.uid && (
-              <div className="deletePost">
-                <button
-                  onClick={() => {
-                    deleteProblem(post.id);
-                  }}
-                >
-                  {" "}
-                  &#128465;{" "}
-                </button>
-              </div>
-            )}
-          </div>
-        );
-      })}
+      <div className="unofficialProblems">
+        {problemList.map((post) => {
+          return (
+            <div className="post">
+              <h1>
+                <Link to={`/problems/${post.id}`}>{post.title}</Link>
+              </h1>
+              <h3>{post.author.name}</h3>
+              <p>{post.official ? "official" : "not"}</p>
+              <p>{post.description}</p>
+              <p>{post.code}</p>
+              <p>{post.extraInfo}</p>
+              <p>{post.rating}</p>
+              {isAuth && post.author.userID === auth.currentUser.uid && (
+                <div className="deletePost">
+                  <button
+                    onClick={() => {
+                      deleteProblem(post.id);
+                    }}
+                  >
+                    {" "}
+                    &#128465;{" "}
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

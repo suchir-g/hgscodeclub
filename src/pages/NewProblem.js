@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { addDoc, collection, getDoc, doc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db, auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +17,6 @@ export default function NewProblem({ isAuth }) {
   const [rating, setRating] = useState(0);
 
   const [userDoc, setUserDoc] = useState({});
-  const [userID, setUserID] = useState("");
 
   const problemsCollectionRef = collection(db, "problems");
   let navigate = useNavigate();
@@ -20,34 +25,38 @@ export default function NewProblem({ isAuth }) {
     if (!(title && description && code && extraInfo && rating)) {
       return;
     }
-    await addDoc(problemsCollectionRef, {
-      title,
-      description,
-      code,
-      extraInfo,
-      rating,
-      author: { name: userDoc.displayName, userID: userDoc.userID },
-    });
-    // author : {name: auth.currentUser.displayName || auth.currentUser.email, userID: auth.currentUser.uid}
-    navigate("/");
+    console.log(auth.currentUser.uid);
+    try {
+      const q = query(
+        collection(db, "users"),
+        where("userID", "==", auth.currentUser.uid)
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setUserDoc(doc.data());
+      });
+      console.log(userDoc);
+      await addDoc(problemsCollectionRef, {
+        title,
+        description,
+        code,
+        extraInfo,
+        rating,
+        author: { name: userDoc.displayName, userID: userDoc.userID },
+        official: userDoc.role == "Admin"
+      });
+
+      // author : {name: auth.currentUser.displayName || auth.currentUser.email, userID: auth.currentUser.uid}
+      navigate("/");
+    } catch (e) {
+      return;
+    }
   };
 
   useEffect(() => {
-    const fetch = async () => {
-      if (!isAuth) {
-        navigate("/login");
-      } else {
-        await setUserID(auth.currentUser.uid);
-        const collectData = async () => {
-          const usersRef = doc(db, "users", userID);
-          const user = await getDoc(usersRef);
-          setUserDoc(user);
-        };
-        collectData();
-        console.log(userDoc)
-      }
-    };
-    fetch();
+    if (!isAuth) {
+      navigate("/login");
+    }
     //this takes too long to load so "auth" hasn't fully loaded in yet. fix it please tomorow.
   }, []);
 

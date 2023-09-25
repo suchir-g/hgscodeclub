@@ -14,7 +14,7 @@ export default function Terminal({ isAuth }) {
 
   return (
     <div className="terminalHolder">
-      <div className="terminalOutput">{output}</div>
+      <div className="terminalOutput">{output || "help clist problems login register post home clear"}</div>
       <div className="terminalInput">
         <input
           className="terminalInputSingle"
@@ -55,12 +55,22 @@ export default function Terminal({ isAuth }) {
                 case "signup":
                   if (!isAuth) {
                     newOutput += "Navigating to signup";
-                    navigate("/signup");
+                    navigate("/register");
                   } else {
                     newOutput +=
                       "You are already logged in. Did you mean 'profile'?";
                   }
                   break;
+                case "register":
+                  if (!isAuth) {
+                    newOutput += "Navigating to signup";
+                    navigate("/register");
+                  } else {
+                    newOutput +=
+                      "You are already logged in. Did you mean 'profile'?";
+                  }
+                case "weekly":
+                  newOutput += "we don# have that yet mb"
                 case "profile":
                   if (isAuth) {
                     newOutput += "Navigating to profile";
@@ -73,6 +83,14 @@ export default function Terminal({ isAuth }) {
                 case "clear":
                   newOutput = "$ " + input;
                   break;
+                case "ayan":
+                  newOutput += "Go back FOREST!";
+                  break;
+                case "post":
+                  navigate("/newProblem")
+                  break;
+                case "create":
+                  navigate("/newProblem")
                 default:
                   newOutput +=
                     "Unknown command. Type 'clist' for a list of all commands.";

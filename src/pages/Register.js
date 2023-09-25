@@ -29,6 +29,7 @@ export default function Register({ isAuth, setIsAuth }) {
           yearGroup,
           problemCount: 0,
           ranking: 0,
+          role: "None",
           userID: auth.currentUser.uid,
         });
       })
