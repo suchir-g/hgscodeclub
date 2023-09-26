@@ -1,31 +1,33 @@
 .terminalInput {
-  background-color: rgba(128, 128, 128, 0.52);
+  background-color: rgba(45, 45, 45, 0.52);
   box-sizing: content-box;
   display: flex;
   flex-direction: column-reverse;
   padding: 10px;
   height: fit-content;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top: 2px rgba(172, 255, 47, 0.274) solid;
-  border-bottom: 2px #538d22 solid;
-  border-left: 2px #538d22 solid;
-  border-right: 2px #538d22 solid;
 }
 
 .terminalOutput {
-  background-color: rgba(31, 31, 31, 0.501);
   color: white;
   height: 35vh;
   display: flex;
   flex-direction: column-reverse;
   white-space: pre-line;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;  border-top: 2px rgba(172, 255, 47, 0.274) solid;
-	border-top: 2px #538d22 solid;
-  border-left: 2px #538d22 solid;
-  border-right: 2px #538d22 solid;
+  overflow: auto;
+  font-weight:400;
+  border-top: 1px rgba(45, 45, 45, 0.52) solid;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input {
+  font-family: 'Fira Mono', monospace;
+  font-weight: 500;
+  font-size: 1em;
+}
+
 
 .terminalInputSingle {
   border: none;
@@ -37,6 +39,6 @@
 }
 
 .terminalHolder {
-  width: 80%;
+  width: 100%;
 	padding: 5px;
 }
