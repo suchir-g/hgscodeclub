@@ -7,6 +7,12 @@
   height: fit-content;
 }
 
+.terminalInput > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .terminalOutput {
   color: white;
   height: 35vh;
@@ -22,10 +28,12 @@
   display: none;
 }
 
-input {
+.terminalInput input {
   font-family: 'Fira Mono', monospace;
   font-weight: 500;
   font-size: 1em;
+  text-shadow: #f2f24546 0px 0px 2px;
+  width: 97%;
 }
 
 

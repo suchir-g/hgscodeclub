@@ -8,3 +8,16 @@ body {
   word-wrap: break-word;
   font-family: 'Fira Mono', monospace;
 }
+
+.subtitle {
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease 3s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

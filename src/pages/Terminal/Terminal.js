@@ -18,14 +18,14 @@ export default function Terminal({ isAuth }) {
       <div className="terminalOutput" style={{ color: "#e5e5e5" }}>
         {testNewOutput.map((d) => (
           <p>
-            <span style={{ color: "#bc3fbc" }}>$ </span> {d}
+            <span style={{ color: "#e24e4e" }}>$ </span> {d}
           </p>
         ))}
         {!testNewOutput && "help clist problems login register post home clear"}
       </div>
       <div className="terminalInput">
         <div>
-          <span style={{ color: "#f2f245" }}>$</span>{" "}
+          <span style={{ color: "#f2f245" }}>$ </span>{"   "}
           <input
             className="terminalInputSingle"
             ref={inputRef}
@@ -112,6 +112,7 @@ export default function Terminal({ isAuth }) {
           />
         </div>
       </div>
+      <script src="./fancyEffects.js"></script>
     </div>
   );
 }

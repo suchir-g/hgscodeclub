@@ -9,8 +9,9 @@ export default function Home({ isAuth }) {
       <div className="mainContent">
         <div className="welcomeDiv">
           <div className="miniNestedDiv">
-            <h1 className="welcome welcome-hi">Hi.</h1>
-            <h1 className="welcome welcome-lt">Welcome to code club.</h1>
+            <div className="miniNestedNestedDiv2">
+              <h1 className="welcome welcome-lt">Welcome to code club.</h1>
+            </div>
             <br />
             <i className="subtitle">
               {">"} Write commands in the terminal below to nagivate the site
