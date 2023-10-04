@@ -66,7 +66,7 @@ export default function Register({ isAuth, setIsAuth }) {
     <div className="registerPage">
       <div className="registerSection">
         <div className="registerType">
-          <h1>Register</h1>
+          <h1 className=" noselect">Register</h1>
         </div>
         <i className="subtitle">
           Or did you mean{" "}

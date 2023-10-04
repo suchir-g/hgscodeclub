@@ -1,0 +1,72 @@
+:root {
+	--blue-color: #29b8db;
+}
+
+.profileContainer {
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileSection {
+  padding: 2em;
+	font-size: medium;
+	height: 60%;
+	width: max(40%, 400px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.profileSection button {
+	font-family: "Fira Mono";
+	color: aliceblue;
+	font-size: small;
+}
+
+.profileSection > .loadAllData {
+  background-color: var(--blue-color);
+  border: none;
+  padding: 1em 2em;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.profileSection > .signOut {
+  background-color: #3a3d41;
+  border: none;
+  padding: 1em 2em;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.profileSection h1 {
+  color: var(--blue-color);
+   text-shadow: 0px 0px 5px #29b8db46; 
+  font-size: 4em;
+  margin: 0;
+	  border-right: 5px solid transparent;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+	animation: typing 1s steps(7), bluecursor 400ms step-end 7 alternate;
+}
+
+
+
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes bluecursor {
+  50% {
+    border-color: var(--blue-color);
+  }
+}

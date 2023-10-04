@@ -36,6 +36,13 @@
   width: 97%;
 }
 
+.terminalInput input::placeholder {
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff15;
+  text-shadow: none;
+}
+
 
 .terminalInputSingle {
   border: none;

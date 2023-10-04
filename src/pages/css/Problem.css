@@ -1,0 +1,76 @@
+:root {
+  --red-color: #e24e4e;
+	--bg-textShadow : #e24e4e10;
+}
+
+.problemPageMainContainer {
+  width: 100svw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.problemPost {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #24252c; */
+  padding: 2em;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.problemPost h1 {
+  color: var(--red-color);
+  text-shadow: 0px 0px 5px var(--bg-textShadow);
+  font-size: 4em;
+  margin: 0;
+  border-right: 5px solid transparent;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 1s, redcursor 400ms step-end 7 alternate;
+}
+
+.problemIndividualType {
+  display: inline-block;
+	width: fit-content;
+}
+
+.allowLineBreak {
+	white-space: pre-line;
+}
+
+
+code {
+	font-size: larger;
+	color: #e5e5e5;
+	font-style: italic;
+}
+
+.extraInfo {
+	font-size: smaller;
+	color: #7d809b;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  border: none;
+  color: aliceblue;
+  font-size: xx-large;
+}
+
+.deleteProblemBtn {
+  border: none;
+  background-color: #e24e4e;
+  font-family: "Fira mono";
+  color: aliceblue;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+@keyframes redcursor {
+  50% {
+    border-color: var(--red-color);
+  }
+}

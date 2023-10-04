@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  addDoc,
-  collection,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db, auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import "./css/NewProblem.css";
 
 export default function NewProblem({ isAuth }) {
   const [title, setTitle] = useState("");
@@ -43,7 +38,7 @@ export default function NewProblem({ isAuth }) {
         extraInfo,
         rating,
         author: { name: userDoc.displayName, userID: userDoc.userID },
-        official: userDoc.role == "Admin"
+        official: userDoc.role == "Admin",
       });
 
       // author : {name: auth.currentUser.displayName || auth.currentUser.email, userID: auth.currentUser.uid}
@@ -58,12 +53,14 @@ export default function NewProblem({ isAuth }) {
       navigate("/login");
     }
     //this takes too long to load so "auth" hasn't fully loaded in yet. fix it please tomorow.
-  }, []);
+  }, [auth]);
 
   return (
     <div className="createPostPage">
+      <div className="postProblemType">
+        <h1 className=" noselect">Post a Problem</h1>
+      </div>
       <div className="npContainer">
-        <h1>Post a Problem</h1>
         <div className="inputGpTitle">
           <label htmlFor="title">Title: </label>
           <input
@@ -74,7 +71,7 @@ export default function NewProblem({ isAuth }) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className="inputGpDescription">
+        <div className="iGp inputGpDescription">
           <label htmlFor="igdescription">Description: </label>
           <textarea
             name="igdescription"
@@ -85,7 +82,7 @@ export default function NewProblem({ isAuth }) {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
-        <div className="inputGpCode">
+        <div className="iGp inputGpCode">
           <label htmlFor="igcode">Code: </label>
           <textarea
             name="igcode"
@@ -95,17 +92,17 @@ export default function NewProblem({ isAuth }) {
             onChange={(e) => setCode(e.target.value)}
           ></textarea>
         </div>
-        <div className="inputGpExtraInfo">
+        <div className="iGp inputGpExtraInfo">
           <label htmlFor="igextrainfo">Extra Information: </label>
           <textarea
             name="igextrainfo"
             id="igextrainfo"
-            cols="30"
+            cols="20"
             rows="10"
             onChange={(e) => setExtraInfo(e.target.value)}
           ></textarea>
         </div>
-        <div className="inputGpRating">
+        <div className="iGp inputGpRating">
           <label htmlFor="igRating">Rating (1-1000): </label>
           <input
             type="number"
@@ -113,7 +110,11 @@ export default function NewProblem({ isAuth }) {
             onChange={(e) => setRating(e.target.value)}
           />
         </div>
-        <button onClick={createProblem}>Submit Problem</button>
+        <div className="submitButtonWrapper">
+          <button onClick={createProblem} className="submitButton">
+            Submit Problem
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -10,11 +10,11 @@ export default function Home({ isAuth }) {
         <div className="welcomeDiv">
           <div className="miniNestedDiv">
             <div className="miniNestedNestedDiv2">
-              <h1 className="welcome welcome-lt">Welcome to code club.</h1>
+              <h1 className="welcome welcome-lt noselect">Welcome to code club.</h1>
             </div>
             <br />
             <i className="subtitle">
-              {">"} Write commands in the terminal below to nagivate the site
+              {">"} Write commands in the terminal below to navigate the site
             </i>
           </div>
         </div>

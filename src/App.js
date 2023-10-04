@@ -18,20 +18,36 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link>
-        {isAuth && <Link to="/newProblem">Create</Link>}
-        {isAuth && <Link to="/profile">Profile</Link>}
-        {!isAuth && <Link to="/login">Login</Link>}
+      <nav className="mainNav">
+        <Link to="/" className="homeNavbar">
+          $ return to root
+        </Link>
+        {/* {isAuth && <Link to="/newProblem">Create</Link>} */}
+        {isAuth && (
+          <Link to="/profile" className="profileNavbar">
+            $ return to profile
+          </Link>
+        )}
+        {!isAuth && (
+          <Link to="/login" className="profileNavbar">
+            $ login
+          </Link>
+        )}
       </nav>
 
       <Routes>
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/problems" element={<Problems isAuth={isAuth} />} />
-        <Route path="/problems/:problemId" element={<Problem />} />
+        <Route
+          path="/problems/:problemId"
+          element={<Problem isAuth={isAuth} />}
+        />
         <Route path="/newProblem" element={<NewProblem isAuth={isAuth} />} />
         <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/register" element={<Register isAuth={isAuth} setIsAuth={setIsAuth}/>} />
+        <Route
+          path="/register"
+          element={<Register isAuth={isAuth} setIsAuth={setIsAuth} />}
+        />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route
           path="/profile"

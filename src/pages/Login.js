@@ -40,7 +40,7 @@ export default function Login({ setIsAuth }) {
     <div className="loginPage">
       <div className="loginSection">
         <div className="loginType">
-          <h1>Login</h1>
+          <h1 className=" noselect">Login</h1>
         </div>
         <i className="subtitle">
           Or did you mean{" "}

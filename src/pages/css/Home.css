@@ -26,7 +26,7 @@
 }
 
 .mainContent {
-  width: max(300px, 40%);
+  width: 40%;
 }
 
 .miniNestedNestedDiv2 > h1 {
@@ -37,7 +37,7 @@
   white-space: nowrap;
   overflow: hidden;
   letter-spacing: 2px;
-  text-shadow: #2dc78c53 1px 1px 10px;
+  text-shadow: #2dc78c1e 1px 1px 10px; 
 }
 
 .welcome-lt {
@@ -55,7 +55,6 @@
 
 .subtitle {
   opacity: 0;
-  transform: translateY(3rem);
   animation: fadeInUp 2s ease 3s forwards;
 }
 
@@ -77,6 +76,5 @@
 @keyframes fadeInUp {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }

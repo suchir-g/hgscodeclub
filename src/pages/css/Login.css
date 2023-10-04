@@ -64,7 +64,7 @@
 	justify-content: space-between;
 }
 .finalLoginButton {
-	background-color: #38a1ff;
+	background-color: #d670d6;
 	color: aliceblue;
 	border: none;
 	padding: 0.75em;
@@ -74,15 +74,6 @@
 	
 }
 
-
-@keyframes typing {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
 @keyframes pinkcursor {
   50% {
     border-color: #d670d6;

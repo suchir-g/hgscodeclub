@@ -1,4 +1,131 @@
-.officialProblems {
-	color: black;
-	text-shadow: 1px 1px 1px orange;
+:root {
+	--main-clr: #e24e4e;
+}
+
+.homePage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+}
+
+.problems {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 50%;
+	overflow: scroll;
+	border-bottom: 1px #e24e4e61 solid;
+}
+
+.titleNames {
+	width: 54%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.titleNames > div {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.post {
+	background-color: #24252c;
+	width: 90%;
+	margin-bottom: 3px;
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	padding-left: 2em;
+	padding-right: 2em;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.problemContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.finalPost {
+	display: flex;
+}
+
+.problemsType {
+	display: inline-block;
+	width: fit-content;
+}
+
+.problemLink {
+	color: var(--main-clr);
+}
+
+.newProblem {
+	width: 100%;
+	background-color: #ffd104;
+	border: none;
+	border-radius: 5px;
+	font-family: "Fira Code";
+	font-size:large ;
+	margin: 5px;
+	padding: 0.3em 3em ;
+}
+
+.problemsType h1 {
+  padding: 0;
+  border-right: 5px solid transparent;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--main-clr);
+  text-shadow: #d670d630 1px 1px 10px;
+  font-size: 3em;
+  animation: typing 1s steps(8), redcursor 400ms step-end 7 alternate;
+	margin-bottom: 0;
+}
+
+.deletePost {
+	margin-left: auto;
+	margin-right: 1em;
+}
+
+.easyPost {
+	color: #2dc78c;
+}
+
+.mediumPost {
+	color: #f2f245;
+}
+
+.hardPost {
+	color: #f77474;
+}
+
+.officialPost {
+	color: #11a8cd;
+	font-weight: bold;
+}
+
+.postAuthor {
+	text-shadow: none;
+	font-weight: 500;
+}
+
+
+@keyframes redcursor {
+  50% {
+    border-color: var(--main-clr);
+  }
+}
+
+.subtitle {
+	margin-bottom: 2em;
 }
