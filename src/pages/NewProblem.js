@@ -17,7 +17,7 @@ export default function NewProblem({ isAuth }) {
   let navigate = useNavigate();
 
   const createProblem = async () => {
-    if (!(title && description && code && extraInfo && rating)) {
+    if (!(title && description && code && extraInfo && rating) || rating < 1 || rating > 1000) {
       return;
     }
     console.log(auth.currentUser.uid);

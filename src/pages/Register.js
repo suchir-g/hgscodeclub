@@ -16,7 +16,7 @@ export default function Register({ isAuth, setIsAuth }) {
   const navigate = useNavigate();
 
   const registerWithEmailAndPassword = async () => {
-    if (!(registerEmail || registerPassword || displayName || yearGroup)) {
+    if (!(registerEmail || registerPassword || displayName || yearGroup) || yearGroup > 13 || yearGroup < 7) {
       return;
     }
 
@@ -114,6 +114,7 @@ export default function Register({ isAuth, setIsAuth }) {
             placeholder="7"
             name="igyg"
             id="igyg"
+            
             onChange={(e) => setYearGroup(e.target.value)}
           />
         </div>
