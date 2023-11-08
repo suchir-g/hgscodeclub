@@ -43,6 +43,17 @@
   text-shadow: none;
 }
 
+.inverted {
+  transform: scale(-6,-6);
+  background-color: red;
+  font-size: larger;
+  animation: 10s linear rotate infinite;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.inverted > .terminalInput {
+  display: none;
+}
 
 .terminalInputSingle {
   border: none;
@@ -56,4 +67,14 @@
 .terminalHolder {
   width: 100%;
 	padding: 5px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+
+  }
+  100% {
+    transform: rotate(360);
+  }
 }

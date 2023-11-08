@@ -7,15 +7,17 @@ import "./Terminal.css";
 export default function Terminal({ isAuth }) {
   const [input, setInput] = useState("");
   const [testNewOutput, setTestNewOutput] = useState([]);
+  const [jackState, setJackState] = useState(false);
   const inputRef = useRef();
   const navigate = useNavigate();
 
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
   return (
-    <div className="terminalHolder">
+    <div className={jackState ? "inverted terminalHolder" : "terminalHolder"}>
       <div className="terminalOutput" style={{ color: "#e5e5e5" }}>
         {testNewOutput.map((d) => (
           <p>
@@ -35,7 +37,9 @@ export default function Terminal({ isAuth }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="help"
-            onKeyDown={(e) => {
+            onKeyDown={async (e) => {
+              // Jack i know your here
+              // Stop snooping around...
               if (e.key === "Enter") {
                 let clear = false;
                 let newOutput = input + "\n";
@@ -97,8 +101,26 @@ export default function Terminal({ isAuth }) {
                       navigate("/newProblem");
                       break;
                     case "never gonna give you up":
+                      newOutput += "never gonna let you down";
                       window.location =
                         "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                      break;
+                    case "ayan":
+                      window.location =
+                        "https://youtu.be/lQtaZ90V1SA?si=gKdEsgbMjeixjAHu";
+                      newOutput +=
+                        "ching cheng hanji song! (nav idea obviouly)";
+                      break;
+                    case "jack robinson":
+                      setJackState(true);
+                      newOutput += "stop snooping around... you'll regret it";
+                      setTestNewOutput([newOutput + "\n", ...testNewOutput]);
+                      await delay(5000);
+                      for (let i = 0; i < 10; i++) {
+                        window.open(
+                          "https://www.entrepreneur.com/growing-a-business/jeff-bezos-biography-how-he-started-amazon-and-more/197608"
+                        );
+                      }
                       break;
                     default:
                       newOutput +=

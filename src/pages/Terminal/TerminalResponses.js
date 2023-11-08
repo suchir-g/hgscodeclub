@@ -9,6 +9,9 @@ export const terminalResponses = {
   suchir: "the goat (try disagree with me (you cant ( i made the website)))",
   "code club": "CODE CLUB ON TOP ALWAYS be there or be square",
   "about us": "iuhdsuihsd",
-  "nav": "the goat",
-
+  nav: "the goat",
+  harshith: "200k shares\n 40% tax\n 3.54 inches shorter than suchir",
+  rishi: "fake chain smoker",
+  arnav: "💛",
+  
 };
